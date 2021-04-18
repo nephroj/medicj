@@ -254,7 +254,7 @@ basetable = function(data, varlist, grvar=NULL, len.max=5, y.correct=T, trend=F,
             vareq = leveneTest(as.formula(paste(i, '~', grvar)), data=data)
             if(vareq[["Pr(>F)"]][1] < 0.05){
               fit = t.test(as.formula(paste(i, '~', grvar)), data=data, var.equal=F)
-              test = 't (welch)'
+              test = 't(welch)'
             }
             else{
               fit = t.test(as.formula(paste(i, '~', grvar)), data=data, var.equal=T)
@@ -266,7 +266,7 @@ basetable = function(data, varlist, grvar=NULL, len.max=5, y.correct=T, trend=F,
             vareq = leveneTest(as.formula(paste(i, '~', grvar)), data=data)
             if(vareq[["Pr(>F)"]][1] < 0.05){
               fit = oneway.test(as.formula(paste(i, "~", grvar)), data=data, var.equal=F)
-              test = 'anova (welch)'
+              test = 'anova(welch)'
             }
             else{
               fit = oneway.test(as.formula(paste(i, "~", grvar)), data=data, var.equal=T)
@@ -319,7 +319,7 @@ basetable = function(data, varlist, grvar=NULL, len.max=5, y.correct=T, trend=F,
               vareq = leveneTest(as.formula(paste(i, '~', grvar)), data=data)
               if(vareq[["Pr(>F)"]][1] < 0.05){
                 fit = t.test(as.formula(paste(i, '~', grvar)), data=data, var.equal=F)
-                test = 't (welch)'
+                test = 't(welch)'
               }
               else{
                 fit = t.test(as.formula(paste(i, '~', grvar)), data=data, var.equal=T)
@@ -331,7 +331,7 @@ basetable = function(data, varlist, grvar=NULL, len.max=5, y.correct=T, trend=F,
               vareq = leveneTest(as.formula(paste(i, '~', grvar)), data=data)
               if(vareq[["Pr(>F)"]][1] < 0.05){
                 fit = oneway.test(as.formula(paste(i, "~", grvar)), data=data, var.equal=F)
-                test = 'anova (welch)'
+                test = 'anova(welch)'
               }
               else{
                 fit = oneway.test(as.formula(paste(i, "~", grvar)), data=data, var.equal=T)
