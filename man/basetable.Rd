@@ -11,7 +11,7 @@ basetable(
   len.max = 5,
   y.correct = T,
   trend = F,
-  gr.name = levels(data[[grvar]]),
+  gr.name = NULL,
   method = 3,
   combine = F,
   print.result = T,

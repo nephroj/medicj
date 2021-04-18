@@ -7,7 +7,7 @@
 loadpacks(pkg, ...)
 }
 \arguments{
-\item{pkg}{R package to be loaded}
+\item{pkg}{R packages to be loaded}
 }
 \value{
 

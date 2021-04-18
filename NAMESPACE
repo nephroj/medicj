@@ -2,6 +2,8 @@
 
 export(basetable)
 export(fac)
+export(hist_group)
+export(iter_cor)
 export(loadpacks)
 export(varClassifier)
 export(vec)

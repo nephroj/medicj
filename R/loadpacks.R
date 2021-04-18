@@ -2,7 +2,7 @@
 #'
 #' This function loads R packages easily.
 #'
-#' @param pkg R package to be loaded
+#' @param pkg R packages to be loaded
 #' @return
 #' @keywords loadpacks
 #' @export

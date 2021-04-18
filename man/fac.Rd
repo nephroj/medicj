@@ -7,7 +7,7 @@
 fac(data, vars, ...)
 }
 \arguments{
-\item{data}{Dataframe to be used}
+\item{data}{a dataframe to be used}
 
 \item{vars}{Variables to be transformed to factor}
 }

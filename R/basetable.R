@@ -82,10 +82,10 @@ varClassifier = function(dt, myVars, len.max = 5, print.result=T, p_norm=0.05){
 #'
 
 basetable = function(data, varlist, grvar=NULL, len.max=5, y.correct=T, trend=F,
-                     gr.name = levels(data[[grvar]]), method=3, combine=F, print.result=T, p_norm=0.05){
+                     gr.name=NULL, method=3, combine=F, print.result=T, p_norm=0.05){
   suppressWarnings(suppressMessages(library(dplyr, quietly=T)))
   suppressWarnings(suppressMessages(library(tidyr, quietly=T)))
-  suppressWarnings(suppressMessages(library(lazyeval, quietly=T)))
+  #suppressWarnings(suppressMessages(library(lazyeval, quietly=T)))
   suppressWarnings(suppressMessages(library(car, quietly=T)))
   if(trend==T){
     suppressWarnings(suppressMessages(library(PMCMRplus, quietly=T)))
@@ -104,6 +104,12 @@ basetable = function(data, varlist, grvar=NULL, len.max=5, y.correct=T, trend=F,
   }
   digitC = function(x, digits, nsmall, trim=T){
     suppressWarnings(digit(x, digits, nsmall, trim=T))
+  }
+
+  ## gr.name (그룹 변수의 elements 이름을 gr.name에 저장)
+  data[[grvar]] = factor(data[[grvar]])
+  if(is.null(gr.name)){
+    gr.name = levels(data[[grvar]])
   }
 
   ## 변수를 factor 및 continuous variable (normal, non-normal)로 분류해 줌
@@ -205,7 +211,7 @@ basetable = function(data, varlist, grvar=NULL, len.max=5, y.correct=T, trend=F,
 
       # Grouping variable의 이름에 N 수를 같이 넣어줌
       data[[grvar]]=factor(data[[grvar]],
-                           labels=paste0(gr.name, ' (N = ', table(data[[grvar]]), ')'))
+                           labels=paste0(gr.name, ' (n = ', table(data[[grvar]]), ')'))
 
       for(i in varlist){
         if(i %in% vars$notavail){
